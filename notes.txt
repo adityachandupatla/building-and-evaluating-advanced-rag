@@ -1,0 +1,51 @@
+
+Basic RAG Pipeline:
+
+	1. Ingestion
+
+		Documents -> Split it into chunks -> embeddings -> index (vector search / vector db)
+
+	2. Retrieval
+
+		Fetch top K chunks (approximate nearest neighbor) for the input query
+
+	3. Synthesis
+
+		Send everything to LLM and get response
+
+RAG Triad: (these evals are usually available from packages such as: Trulens)
+
+	Context relevance: Is there retrieved context (from vectorDB) relevant to query?
+
+		We can use chain-of-thought reasoning with an LLM
+
+		Note: if context relevance score is low, it means that we need to retrieve more context from vectorDB
+
+	Groundedness: Is the response (from output LLM) supported by the context (retrieved from vectorDB)?
+
+		We can use chain-of-thought reasoning with an LLM
+
+	Answer relevance: Is the response relevant to the query?
+
+		We can use chain-of-thought reasoning with an LLM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
